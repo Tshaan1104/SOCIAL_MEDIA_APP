@@ -1,11 +1,11 @@
 import User from "../models/Users.js";
 import Stories from "../models/Stories.js";
-import Posts from "../models/Post.js";
+import Post from "../models/Post.js";
 
 
 export const fetchAllPosts=async (req, res, next) =>{
  try {
-    const posts=await Posts.find().sort({_id:-1});
+    const posts=await Post.find().sort({_id:-1});
     res.json(posts);
  }
  catch (err) {

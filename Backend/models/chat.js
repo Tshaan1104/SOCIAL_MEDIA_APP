@@ -1,12 +1,15 @@
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
+const chatSchema=mongoose.Schema({
+  _id:{
+    type:String,
+    require:true,
+  },
+  messages:{
+    type:Array,
+  }
 });
 
-const User = mongoose.model('User', userSchema);
+const Chats = mongoose.model('chats', chatSchema);
 
-export default User;
+export default Chats;

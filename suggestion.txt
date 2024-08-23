@@ -1,0 +1,21 @@
+
+Issues
+Asynchronous Error Handling: Some asynchronous operations lack error handling, which could lead to unhandled promise rejections if something goes wrong.
+
+Redundant Code: There is some code repetition, especially in similar event handlers (e.g., followUser and unFollowUser).
+
+Room Joining for Chat: Users should be joining rooms based on chatId to receive updates about specific chat conversations, which might not be fully handled in the original code.
+
+Improvements
+Error Handling: Added try-catch blocks around all asynchronous operations to ensure that errors are caught and logged properly.
+
+Utility Functions: Introduced a utility function (findCommonElements) to reduce redundancy and make the code more modular.
+
+Optimized User Data Fetching: In fetch-profile, excluded the password field when retrieving user data by using Mongoose's projection feature.
+
+Deprecated Elements
+findOneAndUpdate: Although still functional, findOneAndUpdate can be replaced with separate findOne and updateOne operations or using more modern approaches like updateOne with { new: true } to ensure the updated document is returned.
+
+Room-Based Messaging: The need to properly join and broadcast to rooms based on chatId is vital, especially for real-time communication, to avoid issues where users might not receive messages. This was addressed in the refactored code.
+
+These changes aim to improve code reliability, maintainability, and real-time communication capabilities while maintaining the overall functionality of the original implementation.
