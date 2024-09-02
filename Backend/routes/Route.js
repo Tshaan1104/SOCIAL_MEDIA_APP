@@ -8,9 +8,9 @@ const router =express.Router();
 router.post('/login', login);
 router.post('/register', register);
 router.post('/createpost', createpost);
-router.post('/fetchAllPosts', fetchAllPosts);
-router.post('/fetchAllStories', fetchAllStories);
-router.post('/fetchUserImg', fetchUserImg);
-router.post('/fetchUserName', fetchUserName);
+router.get('/fetchAllPosts', fetchAllPosts);
+router.get('/fetchAllStories', fetchAllStories);
+router.get('/fetchUserImg', fetchUserImg);
+router.get('/fetchUserName', fetchUserName);
 
 export default router;

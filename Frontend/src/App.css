@@ -1,8 +1,14 @@
+body {
+  overflow: hidden; /* Hides the scrollbars */
+}
 #root {
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  overflow: hidden; 
+  max-height: 120vh; /* Ensures that the content does not exceed the viewport height */
+  box-sizing: border-box; /* Ensures padding is included in the total height and width */
 }
 
 .logo {

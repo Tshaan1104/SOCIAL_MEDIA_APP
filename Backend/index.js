@@ -5,8 +5,9 @@ import cors from "cors";
 import { Server } from "socket.io";
 import http from "http";
 import path from "path";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 import { fileURLToPath } from "url";
+import SocketHandler from "./SocketHandler.js";
 dotenv.config();
 
 import authRoutes from "./routes/Route.js";
@@ -23,7 +24,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use('/api', authRoutes);
+app.use("/api", authRoutes);
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -41,15 +42,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to the AI");
 });
 
-console.log('JWT_SEeeCRET:', process.env.JWT_SECRET); // secret key
+console.log("JWT_SEeeCRET:", process.env.JWT_SECRET); // secret key
 
 //MongoDB connection
 //Mongoose Connection
 const PORT = 6001;
 mongoose
-  .connect("mongodb+srv://tshaan1104:Tiwari9536@mediaapp.tm4hd.mongodb.net/Social_Media_app", {
-
-  })
+  .connect(
+    "mongodb+srv://tshaan1104:Tiwari9536@mediaapp.tm4hd.mongodb.net/Social_Media_app",
+    {}
+  )
   .then(() => {
     server.listen(PORT, () => {
       console.log(`Server is running on port http://localhost:${PORT}/ `);
